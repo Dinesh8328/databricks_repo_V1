@@ -1,0 +1,11 @@
+order_id,product_name,category,quantity,unit_price,order_date
+1,Coca-Cola,Beverages,5,50.0,2026-05-09
+2,Lays Chips,Snacks,3,30.0,2026-05-09
+3,Pepsi,Beverages,4,45.0,2026-05-09
+4,Doritos,Snacks,2,35.0,2026-05-09
+5,Sprite,Beverages,6,48.0,2026-05-09
+6,Red Bull,Beverages,4,120.0,2026-05-09
+7,Uncle Chips,Snacks,5,25.0,2026-05-09
+8,Thums Up,Beverages,6,40.0,2026-05-09
+9,Kurkure,Snacks,3,20.0,2026-05-09
+10,Limca,Beverages,7,35.0,2026-05-09

@@ -1,0 +1,60 @@
+bundle:
+  name: sales-autoloader-pipeline
+
+workspace:
+  host: https://dbc-dfb6cfad-58be.cloud.databricks.com
+
+resources:
+  jobs:
+    autoloader_pipeline:
+      name: AutoLoader_Bronze_Sales_Pipeline
+
+      tasks:
+        - task_key: setup_infrastructure
+          notebook_task:
+            notebook_path: ./notebooks/setup/setup_catalog.py
+            base_parameters:
+              env: prod
+
+        - task_key: run_autoloader
+          depends_on:
+            - task_key: setup_infrastructure
+          notebook_task:
+            notebook_path: ./notebooks/bronze/autoloader_bronze.py
+            base_parameters:
+              env: prod
+
+        - task_key: validate_data
+          depends_on:
+            - task_key: run_autoloader
+          notebook_task:
+            notebook_path: ./notebooks/validation/validate_bronze.py
+            base_parameters:
+              env: prod
+
+      schedule:
+        quartz_cron_expression: "0 0 21 * * ?"
+        timezone_id: Asia/Kolkata
+        pause_status: UNPAUSED
+
+      email_notifications:
+        on_failure:
+          - dineshthanneru123@gmail.com
+        on_success:
+          - dineshthanneru123@gmail.com
+
+      timeout_seconds: 7200
+
+targets:
+  dev:
+    mode: development
+    workspace:
+      host: https://dbc-dfb6cfad-58be.cloud.databricks.com
+      root_path: /Workspace/Users/dineshthanneru123@gmail.com/.bundle/${bundle.name}/${bundle.target}
+
+  prod:
+    mode: production
+    default: true
+    workspace:
+      host: https://dbc-dfb6cfad-58be.cloud.databricks.com
+      root_path: /Workspace/Users/dineshthanneru123@gmail.com/.bundle/${bundle.name}/${bundle.target}

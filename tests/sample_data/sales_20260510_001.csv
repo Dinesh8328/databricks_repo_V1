@@ -1,0 +1,6 @@
+order_id,product_name,category,quantity,unit_price,order_date
+11,Mountain Dew,Beverages,3,42.0,2026-05-10
+12,Pringles,Snacks,4,55.0,2026-05-10
+13,7UP,Beverages,5,40.0,2026-05-10
+14,Cheetos,Snacks,2,45.0,2026-05-10
+15,Fanta,Beverages,7,38.0,2026-05-10

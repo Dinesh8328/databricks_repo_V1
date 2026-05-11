@@ -2,7 +2,7 @@ bundle:
   name: sales-autoloader-pipeline
 
 workspace:
-  host: https://dbc-dfb6cfad-58be.cloud.databricks.com
+  host: https://dbc-b5f3a13f-2350.cloud.databricks.com
 
 resources:
   jobs:
@@ -49,12 +49,12 @@ targets:
   dev:
     mode: development
     workspace:
-      host: https://dbc-dfb6cfad-58be.cloud.databricks.com
+      host: https://dbc-b5f3a13f-2350.cloud.databricks.com
       root_path: /Workspace/Users/dineshthanneru123@gmail.com/.bundle/${bundle.name}/${bundle.target}
 
   prod:
     mode: production
     default: true
     workspace:
-      host: https://dbc-dfb6cfad-58be.cloud.databricks.com
+      host: https://dbc-b5f3a13f-2350.cloud.databricks.com
       root_path: /Workspace/Users/dineshthanneru123@gmail.com/.bundle/${bundle.name}/${bundle.target}
